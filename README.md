@@ -4,10 +4,12 @@ Badminton Hall Appointment Assistance  NWU羽毛球馆预约辅助
 众所周知西大羽毛球馆预约系统是一坨答辩，本人作为一名羽毛球爱好者深受土豆服务器的迫害，每次从12点半开始等一直要等到接近1点页面才能加载出来，这时候已经基本上所有场次被抢光了
 所以开发了这个系统，用于帮助用户快速抢馆，开发完后试用了下效果很不错，2s完成预约
 
-直接使用网址：还没上线，打算先完善下前端，
+直接使用网址：http://nwu.nat100.top
+
 
 前端页面：
-![image](https://github.com/Oyzmandias/NWU_BRS_assistant/assets/69197910/06d1562e-25c8-43e9-b95e-f0968ef6127d)
+![image](https://github.com/Oyzmandias/NWU_BRS_assistant/assets/69197910/353d2c0e-5745-4f08-b7a5-7220537d1752)
+
 
 系统说明：
 首先安装油猴插件，链接：https://greasyfork.org/zh-CN/scripts/481369-nwu%E8%87%AA%E5%8A%A8%E6%8A%A2%E9%A6%86%E8%8E%B7%E5%8F%96token
