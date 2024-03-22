@@ -54,7 +54,7 @@ http://nwuserv.top/api/seckill/getUser
 token不能为空
 2. 提交任务
 url
-http://nwu.nat100.top/api/seckill/submitTask
+ https://nwuserv.top/api/seckill/submitTask
 
 方式：get
 
@@ -78,7 +78,7 @@ http://nwu.nat100.top/api/seckill/submitTask
 注意
 请确保提交时学号姓名token不为空
 3. 撤销任务
-url：http://nwu.nat100.top/api/seckill/cancelTask
+url： https://nwuserv.top/api/seckill/cancelTask
 
 方式：get
 
@@ -86,12 +86,12 @@ url：http://nwu.nat100.top/api/seckill/cancelTask
 
 4. pv+1
 url
-http://nwu.nat100.top/api/visit
+ https://nwuserv.top/api/visit
 方式:get
 参数:无
 返回:无
 5. 用户点赞
-url:http://nwu.nat100.top/api/like
+url: https://nwuserv.top/api/like
 方式:get
 参数:username用户名
 6. 查看当前提交任务的人员列表
