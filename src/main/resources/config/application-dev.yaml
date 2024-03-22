@@ -1,0 +1,26 @@
+server:
+  port: 8088
+spring:
+  application:
+    name: seckill_badminton_dev
+
+adminUser: 管理员的学号
+#maxTryTime: 2
+maxTryTime: 2
+devMode: true
+#心跳时间，表示哨兵半分钟60s发送请求查一次
+HeartbeatTime: 60
+saveReservationRecordEntityUrl: https://提交预约请求的api地址
+#TODO: 代码仅供学习交流，已隐去该地址
+
+getVenuePlanChildUrl: https://获取场次信息的api
+#TODO: 代码仅供学习交流，已隐去该地址
+
+logging:
+  level:
+    root: info
+  file:
+    name: seckill_badminton_dev.log
+
+AccessKeyId: 阿里云短信key
+AccessKeySecret: 阿里云短信secret

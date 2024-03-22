@@ -1,0 +1,1436 @@
+
+body,html,.myvue{
+    height: 100%;
+    min-width: 1240px;
+    min-height: 1000px;
+}
+.head{
+    min-height: 6%;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: center;
+    border-bottom:1px solid rgb(58, 58, 58);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    font-size: 25px;
+    background-color: #000000;
+    color: white;
+}
+.topbar_div{
+  margin-top: 5px;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.leftspan,.midspan,.rightspan{
+  width: 33%;
+}
+.leftspan{
+  padding-left: 50px;
+}
+.midspan{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.rightspan{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 17px;
+}
+.rightspan>span{
+  margin-right: 20px;
+}
+
+/* .allUserMsgDiv{
+  position: relative;
+  cursor: pointer;
+}
+.allUserMsgDiv>span{
+  position: absolute;
+  left: 15px;
+  top:7px;
+  color: red;
+}
+.allUserMsgDiv {
+  transition: transform 1s;}
+
+.allUserMsgDiv:hover {
+  transform: scale(0.9);
+} */
+
+
+/* 退出登录按钮 */
+.logoutButton {
+  width: 80px;
+  height: 35px;
+  font-size: 17px;
+  border: 0px;
+  color: white;
+  background-color: #1877f2;
+  padding: 3px 5px 3px 5px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.logoutButton:hover {
+  font-size: 15px;
+  background-image: linear-gradient(90deg,
+		#B799FF 0%,
+		#ACBCFF 50%,
+		#AEE2FF 75%,
+		#E6FFFD 100%);
+  color: black;
+  animation: slide 10s linear infinite;
+}
+
+@keyframes slide {
+  100% {
+    background-position: 50rem;
+  }
+}
+
+
+
+/* main_div */
+.main_div{
+    background-color: #000000;
+    color: white;
+    height: 74%;
+    min-height: 74%;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: center;
+}
+.logined_div{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-evenly;
+  align-items: center;
+}
+
+.unloginDiv{
+  height:auto;
+  /* width: 50%; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-evenly;
+  align-items: flex-start;
+  overflow: hidden;
+}
+.unloginDiv>img{
+  width: 100%;
+  min-width: 1860px;
+  height: 100%;
+  max-height: 74vh;
+  min-height: 963px;
+}
+.unloginDiv>div{
+  color: white;
+  position: absolute;
+  width: 700px;
+  margin-left: 150px;
+
+}
+.unloginDiv span{
+  font-size: 18px;
+  font-weight: 600;
+}
+.unloginDiv span{
+  display: block;
+  width: 700px;
+  margin: 10px 0;
+}
+.unloginDiv>div>h3{
+  width: 100%;
+  text-align: center;
+  margin-bottom: 100px;
+  font-weight: 600;
+}
+.unloginDiv>div>div{
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+/* 脚本安装按钮 */
+.toInstallButton {
+  background-color: #ffffff00;
+  color: #ffffff;
+  width: 300px;
+  height: 2.7em;
+  font-size: 1.1em;
+  font-weight: 550;
+  border: #3654ff 0.2em solid;
+  border-radius: 11px;
+  text-align: right;
+  transition: all 0.6s ease;
+  margin-bottom: 10px;
+}
+
+.toInstallButton:hover {
+  background-color: #3654ff;
+  cursor: pointer;
+  color: #fff;
+}
+
+.toInstallButton svg {
+  width: 1.6em;
+  margin: -0.2em 0.8em 1em;
+  position: absolute;
+  display: flex;
+  transition: all 0.6s ease;
+}
+
+.toInstallButton:hover svg {
+  transform: translateX(5px);
+}
+
+.text {
+  margin: 0 1.5em
+}
+
+/* 去登录按钮 */
+.tologinBtn {
+    width: 300px;
+    height: 60px;
+    border: 3px solid #315cfd;
+    border-radius: 45px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background: rgba(3, 3, 3, 0.5);
+    font-size: 1.1em;
+    color: white;
+    font-weight: 550;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .tologinBtn:hover {
+    background: #315cfd;
+    color: white;
+    font-size: 1.2em;
+  }
+
+  /* 提交任务按钮 */
+  .submitBtn {
+    width: 300px;
+    height: 60px;
+    border: 3px solid #315cfd;
+    border-radius: 45px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.5);
+    font-size: 1.1em;
+    color: rgb(255, 255, 255);
+    font-weight: 550;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .submitBtn:hover {
+    background: #315cfd;
+    color: white;
+    font-size: 1.2em;
+  }
+
+
+
+
+/* 结果展示框 */
+.cardBox {
+  width: 500px;
+  height: 400px;
+  position: relative;
+  background-color: white;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: rgba(41, 41, 41, 0.4) 0px 2px 10px 0px,
+  rgba(41, 41, 41, 0.4) 0px 2px 25px 0px;
+}
+
+.card {
+  position: absolute;
+  width: 95%;
+  height: 95%;
+  background: #000000;
+  border-radius: 20px;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  color: #ffffff;
+  overflow: hidden;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.5) 0px 18px 36px -18px inset;
+}
+
+.card .h4 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: 800;
+  pointer-events: none;
+  opacity: .5;
+  width: 70%;
+}
+
+.card .content .h3 {
+
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.card .content p {
+  font-size: 14px;
+  line-height: 1.4em;
+}
+
+.card .content {
+  transform: translateY(100%);
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+}
+
+.card:hover .content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.card:hover .h4 {
+  color: currentColor;
+  opacity: 0;
+}
+
+.cardBox::before {
+  content: "";
+  position: absolute;
+  width: 40%;
+  height: 200%;
+  background: #40E0D0;
+  background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+  background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+  transform-origin: center;
+  animation: glowing_401 5s linear infinite;
+}
+
+@keyframes glowing_401 {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.cardBox .card .table {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 17px;
+}
+.cardBox .card .table p{
+  /* padding: 5px; */
+  height: 40px;
+  margin: 0;
+  width: 80%;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+}
+.cardBox .card .table p span{
+  display: inline-block;
+  width: 50%;
+}
+.cardBox .card .table p span:nth-child(1){
+  border-right: 3px solid rgb(172, 172, 172);
+}
+
+
+
+
+
+
+/* 时间选择框 */
+
+.timeselect_div{
+
+  width: 550px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.timeselect_div>div:nth-child(odd){
+  /* padding-right: 10px; */
+  width: 35%;
+  text-align: right;
+}
+.timeselect_div>div:nth-child(even){
+  width: 15%;
+
+}
+
+/* 时间选择下拉表 */
+.selectoption{
+  color: #ffffff;
+  background-color: #000000;
+  width: 80px;
+  height: 30px;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 7px;
+}
+
+
+/* 可选选项 */
+.options_div{
+  width: 650px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.options_div>div:nth-child(odd){
+  width: 24%;
+  text-align: right;
+}
+.options_div>div:nth-child(even){
+  width: 9%;
+}
+.inform_div{
+  position: absolute;
+  columns: red;
+  display: none;
+}
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: #ffffff;
+  background-color: #000000;
+  border: 2px solid #adb5bd;
+  transition: .4s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.4em;
+  width: 1.4em;
+  border-radius: 20px;
+  left: 0.27em;
+  bottom: 0.25em;
+  background-color: #adb5bd;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #007bff;
+  border: 1px solid #007bff;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #007bff;
+}
+
+input:checked + .slider:before {
+  transform: translateX(1.4em);
+  background-color: #fff;
+}
+
+
+
+
+
+
+
+.result_div{
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  align-items: center;
+}
+.common_box{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-around;
+  align-items: center;
+}
+.bg{
+  display: flex;
+  flex-direction: column;
+  justify-content:space-around;
+  align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+/* 加载动画loader */
+.loader {
+  --path: #ffffff;
+  --dot: #5628ee;
+  --duration: 3s;
+  width: 44px;
+  height: 44px;
+  position: relative;
+}
+
+.loader:before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  position: absolute;
+  display: block;
+  background: var(--dot);
+  top: 37px;
+  left: 19px;
+  transform: translate(-18px, -18px);
+  animation: dotRect var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+}
+
+.loader svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.loader svg rect, .loader svg polygon, .loader svg circle {
+  fill: none;
+  stroke: var(--path);
+  stroke-width: 10px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.loader svg polygon {
+  stroke-dasharray: 145 76 145 76;
+  stroke-dashoffset: 0;
+  animation: pathTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+}
+
+.loader svg rect {
+  stroke-dasharray: 192 64 192 64;
+  stroke-dashoffset: 0;
+  animation: pathRect 3s cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+}
+
+.loader svg circle {
+  stroke-dasharray: 150 50 150 50;
+  stroke-dashoffset: 75;
+  animation: pathCircle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+}
+
+.loader.triangle {
+  width: 48px;
+}
+
+.loader.triangle:before {
+  left: 21px;
+  transform: translate(-10px, -18px);
+  animation: dotTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+}
+
+@keyframes pathTriangle {
+  33% {
+    stroke-dashoffset: 74;
+  }
+
+  66% {
+    stroke-dashoffset: 147;
+  }
+
+  100% {
+    stroke-dashoffset: 221;
+  }
+}
+
+@keyframes dotTriangle {
+  33% {
+    transform: translate(0, 0);
+  }
+
+  66% {
+    transform: translate(10px, -18px);
+  }
+
+  100% {
+    transform: translate(-10px, -18px);
+  }
+}
+
+@keyframes pathRect {
+  25% {
+    stroke-dashoffset: 64;
+  }
+
+  50% {
+    stroke-dashoffset: 128;
+  }
+
+  75% {
+    stroke-dashoffset: 192;
+  }
+
+  100% {
+    stroke-dashoffset: 256;
+  }
+}
+
+@keyframes dotRect {
+  25% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(18px, -18px);
+  }
+
+  75% {
+    transform: translate(0, -36px);
+  }
+
+  100% {
+    transform: translate(-18px, -18px);
+  }
+}
+
+@keyframes pathCircle {
+  25% {
+    stroke-dashoffset: 125;
+  }
+
+  50% {
+    stroke-dashoffset: 175;
+  }
+
+  75% {
+    stroke-dashoffset: 225;
+  }
+
+  100% {
+    stroke-dashoffset: 275;
+  }
+}
+
+.loader {
+  display: inline-block;
+  margin: 0 16px;
+}
+
+ 
+
+.loader_div{
+  display: none;
+  z-index: 2000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  opacity:0.85;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+/* .options选择框 */
+/* The switch - the box around the slider */
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+
+
+
+
+/* footer */
+.footer{
+  height: 20%;
+  min-height: 20%;
+  /* min-height: 230px; */
+  display: flex;
+  flex-direction: row;
+  justify-content:space-evenly;
+  align-items: center;
+  border-top:2px solid #363636;
+  background-color: #000000;
+  color: white;
+}
+
+.textInfo,.authorInfo{
+  font-weight: 600;
+  font-size: 16px;
+  width: 400px;
+  min-width: 400px;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.verticalLine{
+  height: 80%;
+  width: 2px;
+  border: 1px solid #363636;
+}
+.horizontalLine{
+  height: 2px;
+  width: 100%;
+  border: 1px solid #363636;
+  margin-bottom: 10px;
+}
+.authorInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.textInfo{
+  margin-top: 50px;
+}
+.authorInfo>div{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  height: 50px;
+  /* line-height: 50px; */
+  
+}
+.authorInfo>div>div:nth-child(1){
+  width: 40%;
+
+
+}
+.authorInfo>div>div:nth-child(2){
+  width: 60%;
+
+}
+
+
+/* 博客按钮 */
+.blogBtn {
+  position: relative;
+  font-size: 12px;
+  letter-spacing: 3px;
+  height: 3em;
+  padding: 0 2.4em;
+  border: none;
+  background-color: rgb(196,27,84);
+  color: #fff;
+  text-transform: uppercase;
+  overflow: hidden;
+  border-radius: 17px
+ }
+ 
+ .blogBtn::before {
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  left: 0;
+  height: 0px;
+  width: 100%;
+  background: rgb(196,27,84);
+  background: linear-gradient(90deg, rgba(196,27,84,1) 20%, rgba(124,7,46,1) 100%);
+  transition: 0.2s;
+ }
+ 
+ .blogBtn .label {
+  position: relative;
+ }
+ 
+ .blogBtn .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3em;
+  width: 3em;
+  position: absolute;
+  top: 3em;
+  right: 0;
+  opacity: 0;
+  transition: 0.4s;
+ }
+ 
+ .blogBtn:hover::before {
+  height: 100%;
+ }
+ 
+ .blogBtn:hover .icon {
+  top: 0;
+  opacity: 1;
+ }
+
+
+
+
+
+
+/* githubbutton */
+.githubButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 6px;
+  gap: 15px;
+  background-color: #313131;
+  outline: 3px #181717 solid;
+  outline-offset: -3px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: 400ms;
+}
+
+.githubButton .text {
+  color: white;
+  margin: 0;
+  font-weight: 600;
+  font-size: 14px;
+  transition: 400ms;
+}
+
+.githubButton svg path {
+  transition: 400ms;
+}
+  
+.githubButton:hover {
+  background-color: transparent;
+}
+
+.githubButton:hover .text {
+  color: #181717;
+}
+
+.githubButton:hover svg path {
+  fill: #181717;
+}
+
+
+
+
+/* 赞助框 */
+.sponsor1_div{
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2003;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+
+}
+.sponsor1_div>div{
+  display: inherit;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 600px;
+  font-size: 18px;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:100%;
+  font-weight: 550;
+  border-radius: 30px;
+  background: #e0e0e0;
+  /* box-shadow:  24px 24px 48px #8f8f8f,
+               -24px -24px 48px #ffffff; */
+}
+.sponsor1_div>div>img{
+  width: 70%;
+  margin-bottom: 30px;
+}
+
+
+.sponsorButton {
+  background-color: #000;
+  border: 0px;
+  outline: 0px;
+  color: #fff;
+  width: 100px;
+  padding: 5px;
+  border: 2px solid #000;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.liquid {
+  background-color: #2893eb;
+  width: 100px;
+  height: 40px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  box-shadow: inset 5px -5px 25px #104e81,
+  inset -5px 0px 25px #104e81;
+}
+
+.liquid::after {
+  content: '';
+  width: 450px;
+  height: 400px;
+  background: #000;
+  z-index: 1;
+  position: absolute;
+  left: -110px;
+  top: -380px;
+  border-radius: 45%;
+  animation: animate 5s linear 2s infinite;
+}
+
+.liquid::before {
+  content: '';
+  width: 450px;
+  height: 400px;
+  background-color: rgb(68, 160, 235);
+  z-index: 1;
+  position: absolute;
+  left: -110px;
+  top: -380px;
+  border-radius: 40%;
+  animation: animate 5s linear 1.8s infinite;
+}
+
+.btn-txt {
+  position: relative;
+  z-index: 1;
+  font-size: 15px;
+  font-family: sans-serif;
+  letter-spacing: 2px;
+}
+
+@keyframes animate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* 全部用户通知框 */
+.allUserInformDiv{
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2003;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.allUserInformDiv>div{
+  display: inherit;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 420px;
+  padding: 50px;
+  margin: 50px;
+  font-size: 18px;
+  font-family:Arial,Helvetica,sans-serif;font-size:100%;
+  font-weight: 550;
+  border-radius: 30px;
+  background: #e0e0e0;
+  /* box-shadow:  24px 24px 48px #8f8f8f,
+               -24px -24px 48px #ffffff; */
+}
+.allUserInformDiv>div>p{
+  width: 100%;
+}
+
+
+
+
+
+/* 预约结果信息确认按钮蒙版 */
+.informBtn_div{
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2001;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+
+}
+.informBtn_div>div{
+  display: inherit;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 150px;
+  font-size: 18px;
+  font-family:Arial,Helvetica,sans-serif;font-size:100%;
+  font-weight: 550;
+  border-radius: 30px;
+  background: #e0e0e0;
+  /* box-shadow:  24px 24px 48px #8f8f8f,
+               -24px -24px 48px #ffffff; */
+}
+
+.informBtn {
+  height: 50px;
+  width: 150px;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+  /* border: 1px solid red; */
+  border: none;
+}
+
+.informBtn:hover {
+  box-shadow: .5px .5px 150px #252525;
+}
+
+.type1::after {
+  content: "Thanks";
+  height: 50px;
+  width: 150px;
+  background-color: #008080;
+  color: #fff;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  transform: translateY(50px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease-in-out;
+}
+
+.type1::before {
+  content: "确认";
+  height: 50px;
+  width: 150px;
+  background-color: #fff;
+  color: #008080;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  transform: translateY(0px) scale(1.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease-in-out;
+}
+
+.type1:hover::after {
+  transform: translateY(0) scale(1.2);
+}
+
+.type1:hover::before {
+  transform: translateY(-50px) scale(0) rotate(120deg);
+}
+
+
+
+/* 点赞按钮 */
+.like-dislike-container {
+  
+  --lightest-grey: linear-gradient(#fafafa,#ebebeb);
+  --shadow: 0 5px 15px 0 #00000026;
+  --shadow-active: 0 5px 5px 0 #00000026;
+  --border-radius-main: 20px;
+  --border-radius-icon: 50px;
+  position: relative;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  cursor: default;
+  color: white;
+  padding: 0.5rem;
+  font-weight: 600;
+  max-width: max-content;
+  border-radius: var(--border-radius-main);
+  box-shadow: var(--shadow);
+  transition: .2s ease all;
+  background-color: #000000;
+}
+
+.like-dislike-container:hover {
+  box-shadow: var(--shadow-active);
+}
+
+
+.like-dislike-container .text-content {
+  color: white;
+  margin-bottom: 1rem;
+  font-size: 18px;
+  line-height: 1.6;
+  cursor: default;
+}
+
+.like-dislike-container .icons-box {
+  display: flex;
+}
+
+.like-dislike-container .icons {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: .6;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  user-select: none;
+  border: 2px solid rgb(209, 209, 209);
+  border-radius: var(--border-radius-icon);
+  transition: .2s ease all;
+}
+
+.like-dislike-container .icons:hover {
+  opacity: .9;
+  box-shadow: var(--shadow);
+}
+
+.like-dislike-container .icons:active {
+  opacity: .9;
+  box-shadow: var(--shadow-active);
+}
+
+.like-dislike-container .icons .btn-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0.5rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.like-dislike-container .like-text-content {
+  color: white;
+
+  border-right: 0.1rem rgb(209, 209, 209);
+  padding: 0 0.6rem 0 0.5rem;
+  pointer-events: none;
+}
+
+.like-dislike-container .dislike-text-content {
+  border-left: 0.1rem solid white;
+  padding: 0 0.5rem 0 0.6rem;
+  pointer-events: none;
+}
+
+.like-dislike-container .icons .svgs {
+  width: 1.3rem;
+  fill: rgb(209, 209, 209);
+  box-sizing: content-box;
+  padding: 10px 10px;
+  transition: .2s ease all;
+}
+
+/* Hide the default checkbox */
+.like-dislike-container .icons .input-box {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.like-dislike-container .icons #icon-like-regular {
+  display: block;
+}
+
+.like-dislike-container .icons #icon-like-solid {
+  display: none;
+}
+
+.like-dislike-container .icons:hover :is(#icon-like-solid, #icon-like-regular) {
+  animation: rotate-icon-like 0.7s ease-in-out both;
+}
+
+.like-dislike-container .icons #like-checkbox:checked ~ #icon-like-regular {
+  display: none;
+  animation: checked-icon-like 0.5s;
+}
+
+.like-dislike-container .icons #like-checkbox:checked ~ #icon-like-solid {
+  display: block;
+  animation: checked-icon-like 0.5s;
+}
+
+.like-dislike-container .icons #icon-dislike-regular {
+  display: block;
+  transform: rotate(180deg);
+}
+
+.like-dislike-container .icons #icon-dislike-solid {
+  display: none;
+  transform: rotate(180deg);
+}
+
+.like-dislike-container .icons:hover :is(#icon-dislike-solid, #icon-dislike-regular) {
+  animation: rotate-icon-dislike 0.7s ease-in-out both;
+}
+
+.like-dislike-container .icons #dislike-checkbox:checked ~ #icon-dislike-regular {
+  display: none;
+  animation: checked-icon-dislike 0.5s;
+}
+
+.like-dislike-container .icons #dislike-checkbox:checked ~ #icon-dislike-solid {
+  display: block;
+  animation: checked-icon-dislike 0.5s;
+}
+
+.like-dislike-container .icons .fireworks {
+  transform: scale(0.4);
+}
+
+.like-dislike-container .icons #like-checkbox:checked ~ .fireworks > .checked-like-fx {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  right: 40px;
+  border-radius: 50%;
+  box-shadow: 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff;
+  animation: 1s fireworks-bang ease-out forwards, 1s fireworks-gravity ease-in forwards, 5s fireworks-position linear forwards;
+  animation-duration: 1.25s, 1.25s, 6.25s;
+}
+
+.like-dislike-container .icons #dislike-checkbox:checked ~ .fireworks > .checked-dislike-fx {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 40px;
+  border-radius: 50%;
+  box-shadow: 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff, 0 0 #fff;
+  animation: 1s fireworks-bang ease-out forwards, 1s fireworks-gravity ease-in forwards, 5s fireworks-position linear forwards;
+  animation-duration: 1.25s, 1.25s, 6.25s;
+}
+
+/* Shake Animation */
+@keyframes rotate-icon-like {
+  0% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+
+  25% {
+    transform: rotate(3deg) translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: rotate(-3deg) translate3d(0, 0, 0);
+  }
+
+  75% {
+    transform: rotate(1deg) translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes rotate-icon-dislike {
+  0% {
+    transform: rotate(180deg) translate3d(0, 0, 0);
+  }
+
+  25% {
+    transform: rotate(183deg) translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: rotate(177deg) translate3d(0, 0, 0);
+  }
+
+  75% {
+    transform: rotate(181deg) translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: rotate(180deg) translate3d(0, 0, 0);
+  }
+}
+
+/* Checked Animation */
+@keyframes checked-icon-like {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1.2) rotate(-10deg);
+  }
+}
+
+@keyframes checked-icon-dislike {
+  0% {
+    transform: scale(0) rotate(180deg);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1.2) rotate(170deg);
+  }
+}
+
+/* Fireworks Animation */
+@keyframes fireworks-position {
+  0%, 19.9% {
+    margin-top: 10%;
+    margin-left: 40%;
+  }
+
+  20%, 39.9% {
+    margin-top: 40%;
+    margin-left: 30%;
+  }
+
+  40%, 59.9% {
+    margin-top: 20%;
+    margin-left: 70%;
+  }
+
+  60%, 79.9% {
+    margin-top: 30%;
+    margin-left: 20%;
+  }
+
+  80%, 99.9% {
+    margin-top: 30%;
+    margin-left: 80%;
+  }
+}
+
+@keyframes fireworks-gravity {
+  to {
+    transform: translateY(200px);
+    opacity: 0;
+  }
+}
+
+@keyframes fireworks-bang {
+  to {
+    box-shadow: 114px -107.3333333333px #8800ff, 212px -166.3333333333px #a600ff, 197px -6.3333333333px #ff006a, 179px -329.3333333333px #3300ff, -167px -262.3333333333px #ff0062, 233px 65.6666666667px #ff008c, 81px 42.6666666667px #0051ff, -13px 54.6666666667px #00ff2b, -60px -183.3333333333px #0900ff, 127px -259.3333333333px #ff00e6, 117px -122.3333333333px #00b7ff, 95px 20.6666666667px #ff8000, 115px 1.6666666667px #0004ff, -160px -328.3333333333px #00ff40, 69px -242.3333333333px #000dff, -208px -230.3333333333px #ff0400, 30px -15.3333333333px #e6ff00, 235px -15.3333333333px #fb00ff, 80px -232.3333333333px #d5ff00, 175px -173.3333333333px #00ff3c, -187px -176.3333333333px #aaff00, 4px 26.6666666667px #ff6f00, 227px -106.3333333333px #ff0099, 119px 17.6666666667px #00ffd5, -102px 4.6666666667px #ff0088, -16px -4.3333333333px #00fff7, -201px -310.3333333333px #00ffdd, 64px -181.3333333333px #f700ff, -234px -15.3333333333px #00fffb, -184px -263.3333333333px #aa00ff, 96px -303.3333333333px #0037ff, -139px 10.6666666667px #0026ff, 25px -205.3333333333px #00ff2b, -129px -322.3333333333px #40ff00, -235px -187.3333333333px #26ff00, -136px -237.3333333333px #0091ff, -82px -321.3333333333px #6a00ff, 7px -267.3333333333px #ff00c8, -155px 30.6666666667px #0059ff, -85px -73.3333333333px #6a00ff, 60px -199.3333333333px #55ff00, -9px -289.3333333333px #00ffaa, -208px -167.3333333333px #00ff80, -13px -299.3333333333px #ff0004, 179px -164.3333333333px #ff0044, -112px 12.6666666667px #0051ff, -209px -125.3333333333px #ff00bb, 14px -101.3333333333px #00ff95, -184px -292.3333333333px #ff0099, -26px -168.3333333333px #09ff00, 129px -67.3333333333px #0084ff, -17px -23.3333333333px #0059ff, 129px 34.6666666667px #7300ff, 35px -24.3333333333px #ffd900, -12px -297.3333333333px #ff8400, 129px -156.3333333333px #0dff00, 157px -29.3333333333px #1a00ff, -221px 6.6666666667px #ff0062, 0px -311.3333333333px #ff006a, 155px 50.6666666667px #00ffaa, -71px -318.3333333333px #0073ff;
+  }
+}
+
+
+/* 百分比圆环 */
+
+.statisticInfo{
+  /* width: ; */
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items: center;
+  margin-bottom: 7px;
+}
+.statisticInfo >:nth-child(1){
+  margin-right: 10px;
+}
+.statisticInfo >:nth-child(2){
+  margin-left: 10px;
+}
+
+
+.circle-wrapper {
+  display: inline-block;
+  position: relative;
+  width: 88px;
+  height: 88px;
+  margin-bottom: 8px;
+}
+.circle-wrapper .coupon-num {
+width: 36px;
+position: absolute;
+top: 50%;
+left: 50%;
+margin-left: -18px;
+color: #ffffff;
+font-size: 12px;
+margin-top: -15px;
+text-align: center;
+}
+.circle-full {
+opacity: .2;
+}
+.circle-detail {
+-webkit-transform-origin: 44px 44px;
+transform-origin: 44px 44px;
+-webkit-transform: rotate(-90deg);
+transform: rotate(-90deg);
+stroke: #3a57ff;
+}

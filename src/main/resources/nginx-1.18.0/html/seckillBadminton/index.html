@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>预约助手公测版</title>
+</head>
+<link rel="stylesheet" href="css/Bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="css/index.css">
+<body>
+<div class="myvue" id="app">
+	<div class="informBtn_div" ref="informBtn_div">
+		<div>
+			<p>{{informBtnDivMsg}}</p>
+			<button class="informBtn type1" @click="closeInformBtnDiv"></button>
+		</div>
+	</div>
+	<div class="allUserInformDiv" ref="allUserInform_div">
+		<div>
+			<p>1. 如果登录失败（右上角不显示学号姓名），请 <a href="https://greasyfork.org/zh-CN/scripts/482749-nwu%E8%87%AA%E5%8A%A8%E6%8A%A2%E9%A6%86%E8%8E%B7%E5%8F%96token" target="_blank"><span>点击这里更新脚本</span></a> 并退出登录后重新登录</p>
+			<p v-for="(allUserMsg, index) in allUserMsgs">{{index + 2}}. {{allUserMsg}}</p>			
+			<button class="informBtn type1" @click="closeAllUserInformDiv"></button>
+		</div>
+	</div>
+	<!-- 不可以设置sponsor_div，这个名字在jquery是内置变量名，会被覆盖为display ：none高优先级，导致不显示 -->
+	<div class="sponsor1_div" ref="sponsor_div">
+		<div>
+			<h4>非常感谢您的赞赏</h4>
+			<img src="imgs/zfb.jpg" alt="哎呦，图片不小心丢失了">
+			<button class="informBtn type1" @click="closeSponsorDiv"></button>
+		</div>
+	</div>
+	<div class="loader_div" ref="loader_div">
+		<div class="loader">
+			<svg viewBox="0 0 80 80">
+				<circle id="test" cx="40" cy="40" r="32"></circle>
+			</svg>
+		</div>
+		<div class="loader triangle">
+			<svg viewBox="0 0 86 80">
+				<polygon points="43 8 79 72 7 72"></polygon>
+			</svg>
+		</div>
+		
+		<div class="loader">
+			<svg viewBox="0 0 80 80">
+				<rect x="8" y="8" width="64" height="64"></rect>
+			</svg>
+		</div>
+	</div>
+	<div class="head" >
+		<div class="topbar_div">
+			<span class="leftspan"><img src="imgs/logo.png" alt="哎呦图片不小心丢失了" width="200px" height="50px"></span>
+			<span class="midspan">NWU羽毛球馆预约助手(公测版)</span>
+			<span class="rightspan">
+				<span v-if="userNum===null"></span>
+				<span v-else>{{userNum}}</span>
+				<span v-if="username===null">未登录</span>
+				<span v-else>{{username}}</span>
+				<span v-if="token===null"></span>
+				<span v-else>
+					<button class="logoutButton" @click="toLogout">
+						退出登录
+					</button>
+				</span>
+			</span>
+		</div>
+	</div>
+	
+	<div  class="main_div">
+		<!-- 未登录 -->
+		<div  v-if="token==null" class="unloginDiv" >
+				<img src="imgs/img1.jpg" alt="哎呦，网络不稳定图片丢失了">
+				<div>
+					<h3>NWU羽毛球馆预约助手(公测版)</h3>
+					<span>1，本应用由一个编程和羽毛球爱好者开发，用于NWU南校区羽毛球馆自动抢馆，解决手机微信端载入速度极慢的问题，不对成功率负责，场次数量是固定的，狼多肉少必然导致大部分人抢不到</span>
+					<span>2，推荐电脑访问,推荐使用Edge或者Chrome浏览器，移动设备可以点击页脚链接去博客看使用说明，网页之所以设计黑色是因为防止大家凌晨吃闪</span>
+					<span>3，做了多线程并发下打散目标场次的算法优化，降低多线程抢同一场次产生的碰撞率，尽量提高成功率，此外，不同用户的预约任务提交顺序不影响成功率</span>
+					<span>4，应用不存储您的账号密码，只存储身份令牌用于自动登录，请放心使用</span>
+					<span>5，使用本应用前需要先安装用于自动登录的油猴脚本,请确保浏览器安装了油猴插件，如果没有，点击下面按钮去安装</span>
+					<div><button class="toInstallButton" @click="toInstall1">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
+						</svg>
+						<div class="text">
+							1,点击去安装油猴插件
+						</div>
+					</button></div>
+					<div>
+						<button class="toInstallButton" @click="toInstall2">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
+							</svg>
+							<div class="text">
+							2,点击去安装油猴脚本
+							</div>
+						</button>
+					</div>
+					<span>5，安装完成后返回本页面，然后点击登录,注意：过低的网速可能会导致统一认证失败</span>
+					<div>
+						<button class="tologinBtn" @click="redirectToPage">去NWU统一认证系统自动登录</button>
+					</div>
+
+
+
+
+				</div>
+			
+		</div>
+		<!-- 完成登录 -->
+		<div v-else class="logined_div">
+
+
+			<div class="cardBox" v-if="isFinish">
+				<div class="card">
+				   <div class="h4 table" v-if="issuccess">
+						<p><span>结果：</span><span>{{statusMsg}}</span></p>
+						<p><span>场号：</span><span>{{resultInfo.name}}</span></p>
+						<p><span>场次：</span><span>{{resultInfo.time}}</span></p>
+						<p><span>价格：</span><span>{{resultInfo.price}}</span></p>
+						<p><span>耗时：</span><span>{{resultInfo.seconds}}s</span></p>
+						<p><span>请求线程数：</span><span>{{resultInfo.requestNum}}</span></p>
+						<!-- <p>请自行登录场馆预约系统进行订单支付</p> -->
+					</div>
+					<div class="h4" v-else>
+						<div>{{statusMsg}}</div>
+					</div>
+				  <div class="content">
+					<div class="h3">感谢使用</div>
+					<p>欢迎赞赏或者给个star，马上开源</p>
+				  </div>
+				</div>
+			</div>
+
+			<div class="cardBox" v-else>
+				<div class="card">
+				  <div class="h4">{{statusMsg}}</div>
+					<div class="content">
+						<div class="h3">如何完成抢馆？</div>
+						<p>点击登录，会自动跳到NWU统一认证页面，登录完成后携带用户token返回，会显示当前登录用户信息</p>
+						<p>然后选择你期望的场次范围，比如开始时间17，结束时间22，就会寻找下午5点到21：30之间的所有可预约场次，如果勾选不接受2小时，会自动排除2小时的可用场次信息</p>
+						<p>点击开始抢购按钮，等待一下会看到预约结果</p>
+						<p>选择计划任务模式，提交任务后会在放场(00:00-00:30)的第一时间自动发起预约请求，成功或失败后会发送短信通知给您</p>
+						<p>请注意：实测发现放场不定时，一般在凌晨12:00~12:30，建议00:00之前提交任务</p>
+						<p>预约结果会通过短信下发，如需更改手机号请去场馆预约中心修改</p>
+					</div>
+				</div>
+			</div>
+			  
+			
+			<h4>选择你要预约的时间，一个账号只能预约一个场次</h4>
+			<h5>当前时间: {{ currentTime }}</h5>
+			<div class="timeselect_div">
+				<div><span for="start1">期望开始时间：</span></div>
+				<div>
+					<select id="start1" v-model="startTime" @change="handleSelection_expect_start" class="selectoption">
+						<option v-for="hour in startHours" :value="hour">{{ hour }}</option>
+					</select>
+				</div>
+				<div><span for="end1">期望结束时间：</span></div>
+				<div>
+					<select id="end1" v-model="endTime" class="selectoption" @change="handleSelection_expect_end" >
+						<option v-for="hour in endHours" :value="hour">{{ hour }}</option>
+					</select>
+				</div>
+			</div>
+			<div class="timeselect_div expectation_div">
+				<div><span for="start2">能接受的最早开始时间：</span></div>
+				<div>
+					<select id="start2" v-model="accept_startTime"  class="selectoption">
+						<option v-for="hour in accept_startHours" :value="hour">{{ hour }}</option>
+					</select>
+				</div>
+				<div><span for="end2">能接受的最晚结束时间：</span></div>
+				<div>
+					<select id="end2" v-model="accept_endTime" class="selectoption">
+						<option v-for="hour in accept_endHours" :value="hour">{{ hour }}</option>
+					</select>
+				</div>
+			</div>
+			<div class="options_div">
+				<div class="optionInfo"><span >优先抢两小时场次&nbsp;&nbsp; <br>(可能会降低成功率):&nbsp;&nbsp;</span></div>
+				<div class="optionButton">
+					<label class="switch">
+						<input type="checkbox" v-model="firstTwoHour" @change="switchFirstTwoHour()">
+						<span class="slider"></span>
+					</label>
+				</div>
+				<div class="optionInfo"><span >不接受2小时场次&nbsp;&nbsp;</span></div>
+				<div class="optionButton">
+					<label class="switch">
+						<input type="checkbox" v-model="notTwoHour" @change="switchNotTwoHour()">
+						<span class="slider"></span>
+					</label>
+				</div>
+				<div class="optionInfo"><span>计划任务模式&nbsp;&nbsp;</span></div>
+				<div class="optionButton">
+					<label class="switch">
+						<input type="checkbox" class="switchSpinBtn" @click="switchSpinMode()">
+						<span class="slider"></span>
+					</label>
+					<div class="inform_div">没有权限，可以联系管理员申请</div>
+				</div>
+			</div>
+			<button v-if="taskStatusCode === 1 " @click="cancelTask" class="submitBtn" :disabled="userNum === ''||username===''" >
+				取消预约任务
+			</button>
+			<button v-else-if="spinMode && taskStatusCode !== 1" @click="submitRequest" class="submitBtn" :disabled="userNum === ''||username===''" >
+				提交任务
+			</button>
+			<button  v-else class="submitBtn" :disabled="userNum === ''||username===''" @click="submitRequest">
+				直接抢购
+			</button>
+		</div>
+	</div>
+	<div class="footer">
+
+
+		<div class="textInfo">
+			<p>如果感觉好用欢迎推荐给朋友，欢迎点赞</p>
+			<p>如果有碰到bug，欢迎提交，github和邮箱皆可</p>
+    		<p>更新脚本：<a href="https://greasyfork.org/zh-CN/scripts/482749-nwu%E8%87%AA%E5%8A%A8%E6%8A%A2%E9%A6%86%E8%8E%B7%E5%8F%96token" style="text-decoration: none;">点击这里</a>去主动更新自动获取token脚本</p>
+			<p>邮箱：ozymandiasxj@gmail.com</p>
+		</div>
+		<div class="verticalLine"></div>
+
+		<!-- 点赞按钮 -->
+		<div class="like-dislike-container">
+			<div class="statisticInfo">
+				<div class="statisticCountText">
+					<p>预约任务累计数：{{taskCount}}</p>
+					<p>预约任务成功数：{{taskSuccessCount}}</p>
+				</div>
+				<div class="circle-wrapper">
+					<svg xmlns="http://www.w3.org/200/svg" height="100%" width="100%">
+						<circle class="circle-full" cx="44" cy="44" r="37" fill="none" stroke="#FF4437" stroke-width="10" stroke-linecap="round"></circle>
+						<circle class="circle-detail" cx="44" cy="44" r="37" fill="none" stroke-width="10" stroke-linecap="round" stroke="#FF4437" stroke-dasharray="0,10000"></circle>
+					</svg>
+					<p class="coupon-num had-percent">
+					  成功率
+					  <span class="percent">99%</span>
+					</p>
+				</div>
+			</div>
+
+			<div class="horizontalLine"></div>
+			<p class="text-content">今天喜欢这个应用吗？</p>				
+			<div class="icons-box">
+				<div class="icons">
+					<label class="btn-label" for="like-checkbox">
+						<span class="like-text-content">{{likesCount}}</span>
+						<input class="input-box" :disabled="isLikedToday" v-model="isLikedToday" id="like-checkbox" type="checkbox" @click="likeApp" >
+						<svg class="svgs" id="icon-like-solid" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75.2H464c26.5 0 48 21.5 48 48c0 18.5-10.5 34.6-25.9 42.6C497 275.4 504 288.9 504 304c0 23.4-16.8 42.9-38.9 47.1c4.4 7.3 6.9 15.8 6.9 24.9c0 21.3-13.9 39.4-33.1 45.6c.7 3.3 1.1 6.8 1.1 10.4c0 26.5-21.5 48-48 48H294.5c-19 0-37.5-5.6-53.3-16.1l-38.5-25.7C176 420.4 160 390.4 160 358.3V320 272 247.1c0-29.2 13.3-56.7 36-75l7.4-5.9c26.5-21.2 44.6-51 51.2-84.2l2.3-11.4c5.2-26 30.5-42.9 56.5-37.7zM32 192H96c17.7 0 32 14.3 32 32V448c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V224c0-17.7 14.3-32 32-32z"></path></svg>
+						<svg class="svgs" id="icon-like-regular" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M323.8 34.8c-38.2-10.9-78.1 11.2-89 49.4l-5.7 20c-3.7 13-10.4 25-19.5 35l-51.3 56.4c-8.9 9.8-8.2 25 1.6 33.9s25 8.2 33.9-1.6l51.3-56.4c14.1-15.5 24.4-34 30.1-54.1l5.7-20c3.6-12.7 16.9-20.1 29.7-16.5s20.1 16.9 16.5 29.7l-5.7 20c-5.7 19.9-14.7 38.7-26.6 55.5c-5.2 7.3-5.8 16.9-1.7 24.9s12.3 13 21.3 13L448 224c8.8 0 16 7.2 16 16c0 6.8-4.3 12.7-10.4 15c-7.4 2.8-13 9-14.9 16.7s.1 15.8 5.3 21.7c2.5 2.8 4 6.5 4 10.6c0 7.8-5.6 14.3-13 15.7c-8.2 1.6-15.1 7.3-18 15.1s-1.6 16.7 3.6 23.3c2.1 2.7 3.4 6.1 3.4 9.9c0 6.7-4.2 12.6-10.2 14.9c-11.5 4.5-17.7 16.9-14.4 28.8c.4 1.3 .6 2.8 .6 4.3c0 8.8-7.2 16-16 16H286.5c-12.6 0-25-3.7-35.5-10.7l-61.7-41.1c-11-7.4-25.9-4.4-33.3 6.7s-4.4 25.9 6.7 33.3l61.7 41.1c18.4 12.3 40 18.8 62.1 18.8H384c34.7 0 62.9-27.6 64-62c14.6-11.7 24-29.7 24-50c0-4.5-.5-8.8-1.3-13c15.4-11.7 25.3-30.2 25.3-51c0-6.5-1-12.8-2.8-18.7C504.8 273.7 512 257.7 512 240c0-35.3-28.6-64-64-64l-92.3 0c4.7-10.4 8.7-21.2 11.8-32.2l5.7-20c10.9-38.2-11.2-78.1-49.4-89zM32 192c-17.7 0-32 14.3-32 32V448c0 17.7 14.3 32 32 32H96c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32H32z"></path></svg>
+						<div class="fireworks">
+							<div class="checked-like-fx"></div>
+						</div>
+					</label>
+				</div>
+			</div>
+		</div>
+		<!-- 点赞按钮结束 -->
+		<div class="verticalLine"></div>
+		<div class="authorInfo">
+			<div class="developer_info">
+				<div>开发者：</div>
+				<div>Ozymandias</div>
+			</div>
+			<div>
+				<div class="blogInfo">博客：</div>
+				<div>
+					<button class="blogBtn" @click="toBlog()">
+						<span class="label">去看看</span>
+						<span class="icon">
+						  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"></path></svg>
+						</span>
+					  </button>
+				</div>
+			</div>
+			<div>
+				<div class="mailInfo">赞赏：</div>
+				<div>
+					<button class="sponsorButton" @click="sponsor()">
+						<span class="liquid"></span>  
+						<span class="btn-txt">非常感谢</span>
+					  </button>
+
+					<!-- <button type="button" class="btn btn-primary">
+						<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" viewBox="0 0 256 262" class="svg">
+						<path fill="#4285F4" d="M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622 38.755 30.023 2.685.268c24.659-22.774 38.875-56.282 38.875-96.027" class="blue"></path>
+						<path fill="#34A853" d="M130.55 261.1c35.248 0 64.839-11.605 86.453-31.622l-41.196-31.913c-11.024 7.688-25.82 13.055-45.257 13.055-34.523 0-63.824-22.773-74.269-54.25l-1.531.13-40.298 31.187-.527 1.465C35.393 231.798 79.49 261.1 130.55 261.1" class="green"></path>
+						<path fill="#FBBC05" d="M56.281 156.37c-2.756-8.123-4.351-16.827-4.351-25.82 0-8.994 1.595-17.697 4.206-25.82l-.073-1.73L15.26 71.312l-1.335.635C5.077 89.644 0 109.517 0 130.55s5.077 40.905 13.925 58.602l42.356-32.782" class="yellow"></path>
+						<path fill="#EB4335" d="M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0 79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251" class="red"></path>
+						</svg>
+					</button> -->
+
+				</div>
+			</div>
+			<div>
+				<div>Github:</div>
+				<div>
+					<button class="githubButton" @click="toGithub">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M12 0.296997C5.37 0.296997 0 5.67 0 12.297C0 17.6 3.438 22.097 8.205 23.682C8.805 23.795 9.025 23.424 9.025 23.105C9.025 22.82 9.015 22.065 9.01 21.065C5.672 21.789 4.968 19.455 4.968 19.455C4.422 18.07 3.633 17.7 3.633 17.7C2.546 16.956 3.717 16.971 3.717 16.971C4.922 17.055 5.555 18.207 5.555 18.207C6.625 20.042 8.364 19.512 9.05 19.205C9.158 18.429 9.467 17.9 9.81 17.6C7.145 17.3 4.344 16.268 4.344 11.67C4.344 10.36 4.809 9.29 5.579 8.45C5.444 8.147 5.039 6.927 5.684 5.274C5.684 5.274 6.689 4.952 8.984 6.504C9.944 6.237 10.964 6.105 11.984 6.099C13.004 6.105 14.024 6.237 14.984 6.504C17.264 4.952 18.269 5.274 18.269 5.274C18.914 6.927 18.509 8.147 18.389 8.45C19.154 9.29 19.619 10.36 19.619 11.67C19.619 16.28 16.814 17.295 14.144 17.59C14.564 17.95 14.954 18.686 14.954 19.81C14.954 21.416 14.939 22.706 14.939 23.096C14.939 23.411 15.149 23.786 15.764 23.666C20.565 22.092 24 17.592 24 12.297C24 5.67 18.627 0.296997 12 0.296997Z" fill="white"></path>
+						</svg>
+						<p class="text">GitHub</p>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>
+
+	
+</div>
+	<script src="js/dependencies/vue.min.js"></script>
+	<script src="js/dependencies/jquery.min.js"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
+	<script src="js/dependencies/bootstrap.min.js"></script>
+	<!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+	<script src="js/dependencies/axios.min.js"></script>
+	<script src="js/index.js"></script>
+</body>
+
+</html>
