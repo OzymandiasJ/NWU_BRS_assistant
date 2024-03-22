@@ -122,8 +122,8 @@ public class SMSServiceImpl implements SMSService {
             try{
                 StaticCredentialProvider provider = StaticCredentialProvider.create(Credential.builder()
                         // Please ensure that the environment variables ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set.
-                        .accessKeyId("LTAI5t91ENo8M65mdCCiria9")
-                        .accessKeySecret("FHbwpCuUMjoQDrgr9anRjpOtGaxSVV")
+                        .accessKeyId("阿里云短信key")
+                        .accessKeySecret("阿里云短信Secret")
                         //.securityToken(System.getenv("ALIBABA_CLOUD_SECURITY_TOKEN")) // use STS token
                         .build());
 
