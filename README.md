@@ -47,7 +47,7 @@ NWU场馆预约助手
 规定接口如下：
 1. 获取当前用户：
 url
-http://nwu.nat100.top/api/seckill/getUser
+http://nwuserv.top/api/seckill/getUser
 参数
 用户token
 注意事项
@@ -84,22 +84,30 @@ url：http://nwu.nat100.top/api/seckill/cancelTask
 
 参数：userNum学号
 
-4. pv统计
+4. pv+1
 url
 http://nwu.nat100.top/api/visit
-方式
-get
-参数
-无
-返回
-无
+方式:get
+参数:无
+返回:无
 5. 用户点赞
-url
-http://nwu.nat100.top/api/like
-方式
-get
-参数
-username用户名
+url:http://nwu.nat100.top/api/like
+方式:get
+参数:username用户名
+6. 查看当前提交任务的人员列表
+url： https://nwuserv.top/api/admin/getSpinTaskResults
+方式：get
+参数：adminUserNum=管理员学号
+
+7. 获取结果集合
+url: https://nwuserv.top/api/admin/getSpinTaskResults
+方式：get
+参数：adminUserNum=管理员学号
+9. PVUV点赞数获取
+url:https://nwuserv.top/api/admin/getWebCountInfo
+方式：get
+参数：adminUserNum=管理员学号
+
 3，后端
 使用Controller-Service-DAO架构，MainController为中央控制器，因为接口较少就只是用一个controller了，Service负责处理业务逻辑，而本项目因为不想存储用户信息就没有设计DAO层进行持久化
 
