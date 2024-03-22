@@ -77,7 +77,7 @@ public class SMSServiceImpl implements SMSService {
                 SendSmsRequest sendSmsRequest = SendSmsRequest.builder()
                         .phoneNumbers(phoneNum)
                         .signName("云上智栈")
-                        .templateCode("SMS_464355686")
+                        .templateCode("模板id")
                         // Request-level configuration rewrite, can set Http request parameters, etc.
                         // .requestConfiguration(RequestConfiguration.create().setHttpHeaders(new HttpHeaders()))
                         .build();
@@ -145,7 +145,7 @@ public class SMSServiceImpl implements SMSService {
                 // Parameter settings for API request
                 SendSmsRequest sendSmsRequest = SendSmsRequest.builder()
                         .signName("云上智栈")
-                        .templateCode("SMS_464355687")
+                        .templateCode("模板id")
                         .phoneNumbers(phoneNum)
                         .templateParam("{\"failReason\":\""+msg+"\"}")
                         // Request-level configuration rewrite, can set Http request parameters, etc.
