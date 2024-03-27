@@ -43,8 +43,8 @@ public class UserServiceImpl implements UserService {
         //TODO:生产环境代码
 
         //TODO:测试环境代码
-//        String responseData = "{\"msg\":\"success\",\"code\":0,\"user\":{\"userNum\":\"xxxxxx\",\"sex\":\"男\",\"mobile\":\"18580164887\",\"id\":31619,\"userType\":\"本（专）科生\",\"type\":\"0\",\"email\":null,\"username\":\"肖杰\"}}";
-//        String responseData = "{\"msg\":\"1234567890\",\"code\":0,\"user\":{\"userNum\":\"xxxxxx\",\"sex\":\"男\",\"mobile\":\"18580164887\",\"id\":31619,\"userType\":\"本（专）科生\",\"type\":\"0\",\"email\":null,\"username\":\"肖杰\"}}";
+//        String responseData = "{\"msg\":\"success\",\"code\":0,\"user\":{\"userNum\":\"xxxxxx\",\"sex\":\"男\",\"mobile\":\"电话号\",\"id\":xxx,\"userType\":\"本（专）科生\",\"type\":\"0\",\"email\":null,\"username\":\"xxx\"}}";
+//        String responseData = "{\"msg\":\"1234567890\",\"code\":0,\"user\":{\"userNum\":\"xxxxxx\",\"sex\":\"男\",\"mobile\":\"电话号\",\"id\":xxx,\"userType\":\"本（专）科生\",\"type\":\"0\",\"email\":null,\"username\":\"xxx\"}}";
         //TODO:测试环境代码
 
         //获取学号
